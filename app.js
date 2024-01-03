@@ -1,12 +1,20 @@
-const express = require('express')
-const crypto = require('node:crypto')
-const cors = require('cors')
+import express, { json } from 'express'
+import { randomUUID } from 'node:crypto'
+import cors from 'cors'
+import { validateMovie, validatePartialMovie } from './Schemas/movies.js'
+
+// Leer json ESModules
+// import fs from 'node:fs'
+// const moviesJSON = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'))
+
+// Leer json recomendada por ahora
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
 const moviesJSON = require('./movies.json')
-const { validateMovie, validatePartialMovie } = require('./Schemas/movies')
 
 const app = express()
 app.disable('x-powered-by')
-app.use(express.json())
+app.use(json())
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -63,7 +71,7 @@ app.post('/movies', (req, res) => {
   }
 
   const newMovie = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     ...result.data
   }
 

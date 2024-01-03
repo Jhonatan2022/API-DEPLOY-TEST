@@ -1,5 +1,6 @@
 {
   "name": "basic",
+  "type": "module",
   "version": "1.0.0",
   "description": "![](img/sync-async.png)\r ![](img/Paralelo.png)",
   "main": "file-sys-async-await.js",
@@ -13,7 +14,8 @@
     "standard": "^17.1.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "eslintConfig": {
     "extends": "standard",
