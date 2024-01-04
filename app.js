@@ -2,15 +2,13 @@ import express, { json } from 'express'
 import { randomUUID } from 'node:crypto'
 import cors from 'cors'
 import { validateMovie, validatePartialMovie } from './Schemas/movies.js'
+import { readJSON } from './Utils/readJSON.js'
 
 // Leer json ESModules
 // import fs from 'node:fs'
 // const moviesJSON = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'))
 
-// Leer json recomendada por ahora
-import { createRequire } from 'node:module'
-const require = createRequire(import.meta.url)
-const moviesJSON = require('./movies.json')
+const moviesJSON = readJSON('../movies.json')
 
 const app = express()
 app.disable('x-powered-by')
@@ -41,27 +39,9 @@ app.use(
 
 // Metodos normales: GET/HEAD/POST
 // Metodos complejos: PUT/DELETE/PATCH
+app.get('/movies')
 
-app.get('/movies', (req, res) => {
-  const { genre } = req.query
-  if (genre) {
-    const filteredMovies = moviesJSON.filter((movie) =>
-      movie.genre.some(
-        (g) => g.toLocaleLowerCase() === genre.toLocaleLowerCase()
-      )
-    )
-    return res.json(filteredMovies)
-  }
-  res.json(moviesJSON)
-})
-
-app.get('/movies/:id', (req, res) => {
-  const { id } = req.params
-  const movie = moviesJSON.find((movie) => movie.id === id)
-
-  if (movie) return res.json(movie)
-  res.status(404).json({ error: 'Movie not found' })
-})
+app.get('/movies/:id')
 
 app.post('/movies', (req, res) => {
   const result = validateMovie(req.body)
