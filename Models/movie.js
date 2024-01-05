@@ -46,12 +46,11 @@ export class MovieModel {
       return false
     }
 
-    const updatedMovie = {
+    moviesJSON[movieIndex] = {
       ...moviesJSON[movieIndex],
       ...input
     }
 
-    moviesJSON[movieIndex] = updatedMovie
-    return true
+    return moviesJSON[movieIndex]
   }
 }
