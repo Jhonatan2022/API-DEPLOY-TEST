@@ -13,11 +13,11 @@ Content-Type: application/json
 
 {
   "sql": "SELECT * FROM users",
-  "title": "The Godfather",
-  "year": 1972,
-  "director": "Francis Ford Coppola",
+  "title": "Creada desde .http",
+  "year": 2024,
+  "director": "Jhonatan2022",
   "duration": 175,
-  "poster": "https://i.imgur.com/Uzvny9I.jpg",
+  "poster": "https://unavatar.io/github/jhonatan2022.jpg",
   "genre": ["Crime", "Drama", "Adventure"]
 }
 

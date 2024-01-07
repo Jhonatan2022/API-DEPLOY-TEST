@@ -2,14 +2,10 @@ import express, { json } from 'express'
 import { moviesRouter } from './Routes/movies.js'
 import { corsMiddleware } from './Middlewares/cors.js'
 
-// Leer json ESModules
-// import fs from 'node:fs'
-// const moviesJSON = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'))
-
 const app = express()
-app.disable('x-powered-by')
 app.use(json())
 app.use(corsMiddleware())
+app.disable('x-powered-by')
 
 // Metodos normales: GET/HEAD/POST
 // Metodos complejos: PUT/DELETE/PATCH

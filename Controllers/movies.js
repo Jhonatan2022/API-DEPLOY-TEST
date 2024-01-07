@@ -1,4 +1,4 @@
-import { MovieModel } from '../Models/movie.js'
+import { MovieModel } from '../Models/Mongodb/movie.js'
 import { validateMovie, validatePartialMovie } from '../Schemas/movies.js'
 
 export class MovieController {
