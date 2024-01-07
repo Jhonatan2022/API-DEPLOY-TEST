@@ -1,4 +1,4 @@
-import { readJSON } from '../Utils/readJSON'
+import { readJSON } from '../../Utils/readJSON.js'
 import { randomUUID } from 'node:crypto'
 
 const moviesJSON = readJSON('../movies.json')
@@ -15,7 +15,7 @@ export class MovieModel {
     return moviesJSON
   }
 
-  static async getById(id) {
+  static async getById({ id }) {
     const movie = moviesJSON.find((movie) => movie.id === id)
     return movie
   }

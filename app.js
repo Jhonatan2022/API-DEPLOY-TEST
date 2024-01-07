@@ -1,6 +1,6 @@
 import express, { json } from 'express'
-import { moviesRouter } from './Routes/movies'
-import { corsMiddleware } from './Middlewares/cors'
+import { moviesRouter } from './Routes/movies.js'
+import { corsMiddleware } from './Middlewares/cors.js'
 
 // Leer json ESModules
 // import fs from 'node:fs'

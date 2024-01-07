@@ -21,8 +21,11 @@ Content-Type: application/json
   "genre": ["Crime", "Drama", "Adventure"]
 }
 
+### Borrar una pelicula
+DELETE http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
 ### Actualizar una pelicula
-PATCH http://localhost:1234/movies/7b29d1a0-eafd-49ec-82c0-955544974191
+PATCH http://localhost:1234/movies/924f618a-839f-4d46-b8c4-622e2998076d
 Content-Type: application/json
 
 {

@@ -1,5 +1,5 @@
-import { MovieModel } from '../Models/movie'
-import { validateMovie, validatePartialMovie } from './Schemas/movies.js'
+import { MovieModel } from '../Models/movie.js'
+import { validateMovie, validatePartialMovie } from '../Schemas/movies.js'
 
 export class MovieController {
   static async getAll(req, res) {
