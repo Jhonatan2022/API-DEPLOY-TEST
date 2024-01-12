@@ -32,6 +32,7 @@ export class MovieModel {
       return movies
     }
 
+
     const [movies] = await connection.query(
       'SELECT BIN_TO_UUID(id) AS id, title, year, director, duration, poster, rate FROM movie'
     )
