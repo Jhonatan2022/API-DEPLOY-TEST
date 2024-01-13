@@ -32,7 +32,6 @@ export class MovieModel {
       return movies
     }
 
-
     const [movies] = await connection.query(
       'SELECT BIN_TO_UUID(id) AS id, title, year, director, duration, poster, rate FROM movie'
     )
@@ -82,7 +81,49 @@ export class MovieModel {
     return newMovie[0]
   }
 
-  static async delete({ id }) {}
+  static async delete({ id }) {
+    const [movie] = await connection.query(
+      'SELECT BIN_TO_UUID(id) AS id, title, year, director, duration, poster, rate FROM movie WHERE id = UUID_TO_BIN(?);',
+      [id]
+    )
 
-  static async update({ id, input }) {}
+    if (movie.length === 0) return null
+
+    await connection.query('DELETE FROM movie WHERE id = UUID_TO_BIN(?);', [
+      id
+    ])
+
+    return movie[0]
+  }
+
+  static async update({ id, input }) {
+    const {
+      // genre: genreInput,
+      title,
+      year,
+      director,
+      duration,
+      poster,
+      rate
+    } = input
+
+    const [movie] = await connection.query(
+      'SELECT BIN_TO_UUID(id) AS id, title, year, director, duration, poster, rate FROM movie WHERE id = UUID_TO_BIN(?);',
+      [id]
+    )
+
+    if (movie.length === 0) return null
+
+    await connection.query(
+      'UPDATE movie SET title = ?, year = ?, director = ?, duration = ?, poster = ?, rate = ? WHERE id = UUID_TO_BIN(?);',
+      [title, year, director, duration, poster, rate, id]
+    )
+
+    const [updatedMovie] = await connection.query(
+      'SELECT BIN_TO_UUID(id) AS id, title, year, director, duration, poster, rate FROM movie WHERE id = UUID_TO_BIN(?);',
+      [id]
+    )
+
+    return updatedMovie[0]
+  }
 }

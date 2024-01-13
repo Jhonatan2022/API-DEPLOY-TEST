@@ -25,13 +25,16 @@ Content-Type: application/json
 }
 
 ### Borrar una pelicula
-DELETE http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+DELETE http://localhost:1234/movies/4795ab88-af6b-11ee-9d85-846993de448b
 
 ### Actualizar una pelicula
-PATCH http://localhost:1234/movies/924f618a-839f-4d46-b8c4-622e2998076d
+PATCH http://localhost:1234/movies/9a1d1b60-b03b-11ee-9d85-846993de448b
 Content-Type: application/json
 
 {
-    "title": "Cambiada",
-    "year": 1979
+  "title": "Transformers 2",
+  "year": 2009,
+  "director": "Michael Bay",
+  "duration": 150,
+  "poster": "https://pics.filmaffinity.com/Transformers_2_La_venganza_de_los_caidos-100423261-large.jpg",
 }
