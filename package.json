@@ -17,7 +17,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev:mongo": "nodemon Servers/server-mongodb.js",
+    "dev:mysql": "nodemon Servers/server-mysql.js",
+    "dev:express": "nodemon Servers/server-express.js"
   },
   "eslintConfig": {
     "extends": "standard",
