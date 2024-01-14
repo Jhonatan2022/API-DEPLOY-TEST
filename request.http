@@ -36,5 +36,5 @@ Content-Type: application/json
   "year": 2009,
   "director": "Michael Bay",
   "duration": 150,
-  "poster": "https://pics.filmaffinity.com/Transformers_2_La_venganza_de_los_caidos-100423261-large.jpg",
+  "poster": "https://pics.filmaffinity.com/Transformers_2_La_venganza_de_los_caidos-100423261-large.jpg"
 }
